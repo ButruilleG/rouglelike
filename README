@@ -1,0 +1,5 @@
+This is a roguelike game designed to run on a standard linux terminal.
+To compile, use "MAKE." To run use "./main"
+The files in the "rlg327" folder should be placed in the /.rlg327 folder created by the game on its first run.
+
+Further game information can be found in /roguelike/README and /roguelike/CHANGELOG
