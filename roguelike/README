@@ -1,0 +1,23 @@
+COMPILING:
+  To compile the program, use-
+    $ make
+
+RUNNING:
+  To run the program, use-
+    $ ./main
+
+FEATURES:
+  This program is a rougelike game programmed in c++
+  It meets all criteria set out by assignments 1.01 through 1.09
+  Ncurses and a list of monster and archetype items must be installed for this program to work
+  The numpad and other keyboard keys may be used to control the player character
+  In addition, for version 1.10:
+     Players now have a maximum HP, and restore HP on movement.
+     More difficult monsters will be encountered as the player descends
+     Superior items will be encountered as the player descends
+     The player wins on reaching floor 25, after moving once.
+
+SWITCHES:
+  Using --load will cause the program to load a dungeon named "dungeon" from ~/.rlg327/
+  Using --save will cause the program to save the last valid dungeon in the program to ~/.rlg327/dungeon.
+  Using --nummon (int) will cause the program to generate (int) monsters, who will attemt to kill the PC

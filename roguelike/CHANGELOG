@@ -1,0 +1,178 @@
+9/3/2016:
+	Project started.
+	Created "main.c"
+	Created "Makefile"
+	Created "CHANGELOG"
+	Set up map to generate different rocks of varying hardness
+	Created algorithm to place rooms on map
+        Created algorithm to connect rooms by corridor
+9/5/2016:
+	Altered rock rendering.
+	Created README
+9/10/2016:
+	Refactored each aspect of project into its own file
+	Created:
+		core.h
+		dungeoncreate.h
+		dungeondisplay.h
+		dungeonload.h
+		dungeonsave.h
+		path.h
+		room.h
+
+		dungeoncreate.c
+		dungeondisplay.c
+		dungeonload.c
+		dungeonsave.c
+		path.c
+		room.c
+	Incorporated code from Proffessor Sheaffer and Yuxiag Zhang
+9/12/2016:
+	Implemented file loading
+	Modified dungeon generation, dungeon storage, and corridor creation algorithms
+9/13/2016:
+	Created:
+		utilities.h
+		utilities.c
+	Implemented file saving
+	Modified dungeon generation algorithm
+9/14/2016:
+	Set up endianness conversion for writing
+9/18/2016:
+	From the project destription, added:
+		binheap.c
+		binheap.h
+9/19/2016:
+	created a test implementation of djinkstra's algorithm
+9/20/2016:
+	Added:
+		pathfinding.h
+		pathfinding.c
+	Implemented Djinkstra's algorithm across both tunneling and non-tunneling cases
+	refined corridor generation algorithm
+9/27/2016:
+	Added corners as possible vertices for Djinkstra's alogithm.
+9/28/2016:
+	Fixed bug relating to not checking whether a node was still in the heap
+10/1/2016:
+	Modified room loading/saving to use the Roomslist
+	Modified charachter placement to use the Roomslist
+	Implemented monster generation; converted the player into a type of monster
+10/3/2016:
+	Finished implementing functionality for "--nummon" switch
+	created
+		turn.h
+		turn.c
+10/4/2016:
+	Implemented functionality for monsters
+		moving straight
+		moving erratically
+		moving intelligently
+	Implemented monster deaths
+	Added win/loss conditions
+10/5/2016:
+	Fixed bugs relating to killing monsters
+	Fixed bugs relating to unexpected erratic movement
+	Monsters that move in straight lines will form zig-zags
+		
+10/15/2016:
+	Created
+		terminalcontrol.h
+		terminalcontrol.c
+	Implemented ncurses functionality
+	Moved monster displaying to dungeondisplay.h
+	Implemented input listening
+	Implemented player movement
+	Allowed quitting the game
+	Implemented indemendent monster displaying
+10/18/2016:
+	Moved the task of monster creation to monsters.c from main.c
+	Monster generation now uses "malloc" to allocate space
+	The list of charachters is now a pointer to a list of monsters
+	Added functionality for automatically freeing monsters
+	Began keeping track of monsters killed
+	Created
+		stairs.h
+		stairs.c
+	Implemented staircase functionality
+10/22/2016:
+	Changed "monster_t" into the class "monster"
+	Changed "monsters.c" to "monsters.cpp"
+	Modified "monsters.h" to accomodate this change
+	Created getter/setter functions for monster attributes
+10/23/2016:
+	Added extern "C" {} wrappers where they were needed
+	Created
+		globalvars.cpp
+	Finished fixing bugs relating to the conversion of monster-related activities to C++
+	Removed charachter_list from monsters.h, and modified all programs to use temporary monster lists instead
+	Removed rl from room.h, and modified all programs to use a temporary Roomslist
+	Fixed bug regarding input of "j" key
+	
+10/24/2016:
+	Fixed memory leak/segfault bug
+	Added "map_seen" array to keep track of what the PC's seen
+10/25/2016:
+	Implemented "torch" functionality. PC can only see things within a distance 3.
+10/30/2016:
+	Converted project to C++
+	Fixed bug relating to monster display outside of vision range
+10/31/2016:
+	Created
+		monster_reader.h
+		monster_reader.cpp
+	Changed the default number of monsters from 0 to 4.
+11/1/2016:
+	Created
+		dice.h
+		dice.cpp
+	Implemented monster file parsing and displaying
+	Fixed memory leak related to file parsing
+	Disabled ordinary execution of program to display parsing functionality
+11/6/2016:
+	Re-enabled ordinary execution of the program
+	Added new members to the monster class
+	Monster generation now happens using monster archetypes
+	Monsters are now rendered with their set color and symbol
+	Monster information screen now displays monster names/colors
+	Gave the player a higher first-turn priority
+11/8/2016:
+	Incorporated Yuxiang Zhang's standalone solution for object parsing
+	To do so, added:
+		parser.h
+		parser.cpp
+		objectfactory.h
+		objectfactory.cpp
+	...and incorporated Zhang's version of the "dice" class into my own, including its functions.
+	Fixed bugs relating to code integration
+	Created:
+		mapobject.h
+		mapobject.cpp
+	Implemented object loading	
+11/12/2016:
+	Added fields to the monster class for equipment and carried items
+	Implemented item pickup
+11/14/2016:
+	Fixed item display bug where changing levels didn't remove old items from the screen.
+	Added function for setting top message with string
+	Implemented item:
+		Wearing
+		Taking off
+		Dropping
+		Expunging
+		Inspecting
+	
+11/15/2016:
+	Items now affect
+		Monster speed
+		Monster damage
+	Implemented updated combat
+		Monsters now attack players
+		Players now attack monsters
+	Non-player charachters swap spots when moving.
+11/28/2016:
+	Monsters and items now have a "difficulty" score corresponding to how good they are
+	More powerful monsters are spawned the deeper the player goes into the dungeon
+	HP is restored each time the player moves
+	The player now has a maximum amount of HP
+	The player wins on reaching level 25
